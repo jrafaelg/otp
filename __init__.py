@@ -96,8 +96,10 @@ def criar_usuario(conn: sqlite3.Connection,
     if not use_otp:
         return None, None, None
 
-    """todo
-    """
+    backup_codes = gerar_codigos_reserva(conn, email, senha, 5)
+    otp_uri = pyotp.totp.TOTP(otp_secret).provisioning_uri(name=email.lower(), issuer_name="OTP")
+
+    return otp_secret, otp_uri, backup_codes
 
 
 
