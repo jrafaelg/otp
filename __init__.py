@@ -5,6 +5,7 @@ from typing import Optional, Tuple, List
 import pyotp
 from werkzeug.security import check_password_hash, generate_password_hash
 
+
 def criar_banco(filename: str = 'usuarios.db')-> sqlite3.Connection:
     """
         Cria o banco de dados, descartando os dodos se houver algum
